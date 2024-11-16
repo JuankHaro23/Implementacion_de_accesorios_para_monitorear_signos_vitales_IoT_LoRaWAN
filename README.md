@@ -57,36 +57,23 @@ en la interfaz de usuario.
   </p>
   <br>
 </div>
-##La primera parte de la arquitectura del sistema de comunicación IoT LoRaWAN, 
-denominada sensores. Se realiza un análisis investigativo para seleccionar a los sensores 
-capaces de medir el ritmo cardiaco, SpO2 y temperatura, en el cuerpo humano. Para el ritmocardiaco y SpO2, se seleccionó el sensor MAX30100, y para la lectura de la temperatura el 
-sensor MLX90614. Por su funcionalidad de trabajo los sensores son capaces de interactuar 
-en el cuerpo humano sin realizar ninguna alteración en la salud de la persona discapacitada.
-Los sensores seleccionados trabajan por medio de la comunicación I2C, una señal de datos 
-y una señal de reloj.
-##La segunda parte denominada nodo final, se centra en la interpretación y lectura de los 
-sensores, que se utilizan para realizar las mediciones de los signos vitales en el cuerpo 
-humano, por medio de un microcontrolador ESP32 incorporado. A su vez, el módulo Wifi 
-LoRa 32 v2 posee las caracteristicas de procesar la información que los sensores censan, 
-para poder transmitir, atravez de la tecnología LPWAN, protocolo LoRaWAN por medio 
-del chip LoRa SX1276 del módulo que posee bandas de frecuencia de trabajo desde los 
-863MHz hasta los 928MHz. Logrando una transmisión inalámbrica.
-##En el tercer apartado, se configura el gateway HT-M00 con la red Wifi y la banda de 
-frecuencias de trabajo de la red LoRaWAN, para que realice la recepción e interpretación de 
-la información que es enviada por el Nodo Final con el protocolo LoRaWAN por medio de 
-enlaces de conexión. Para poder luego ser enviada por medio del internet con la tecnología 
-Wifi hacia la nube o servidor de red. Es decir, es el intermediario para la comunicación entre 
-el nodo final y el servidor de red, comportándose como un repetidor de señal. 
-##El cuarto proceso en el servidor de red, The Things Network se registra y configura el 
-gateway HT-M00 seguido del nodo final Wifi LoRa 32 v2 con la red LoRaWAN y la banda 
-de frecuencias de trabajo, con el objetivo de poder comunicarse con los dispositivos de 
-manera remota y recolectar la información que fueron enviados por los sensores, para poder 
-receptar y visualizarlos, en tiempo real.
-##En el quinto y último proceso, con la investigación de compatibilidad del servidor de red, se 
-selecciona la interfaz de usuario Node-Red, que es capaz de poder comunicarse con el 
-servidor de red (The Things Network) transmitiendo los datos censados por los sensores, de 
-manera visual y de fácil entendimiento para el usuario final, en tiempo real.
 
+## Descripción del Sistema de Comunicación IoT LoRaWAN
+
+### 1. Sensores
+La primera parte de la arquitectura del sistema de comunicación IoT LoRaWAN, denominada sensores. Se realiza un análisis investigativo para seleccionar a los sensores capaces de medir el ritmo cardiaco, SpO2 y temperatura, en el cuerpo humano. Para el ritmo cardiaco y SpO2, se seleccionó el sensor MAX30100, y para la lectura de la temperatura el sensor MLX90614. Por su funcionalidad de trabajo los sensores son capaces de interactuar en el cuerpo humano sin realizar ninguna alteración en la salud de la persona discapacitada. Los sensores seleccionados trabajan por medio de la comunicación I2C, una señal de datos y una señal de reloj.
+
+### 2. Nodo Final
+La segunda parte denominada nodo final, se centra en la interpretación y lectura de los sensores, que se utilizan para realizar las mediciones de los signos vitales en el cuerpo humano, por medio de un microcontrolador ESP32 incorporado. A su vez, el módulo Wifi LoRa 32 v2 posee las caracteristicas de procesar la información que los sensores censan, para poder transmitir, atravez de la tecnología LPWAN, protocolo LoRaWAN por medio del chip LoRa SX1276 del módulo que posee bandas de frecuencia de trabajo desde los 863MHz hasta los 928MHz. Logrando una transmisión inalámbrica.
+
+### 3. Gateway
+En el tercer apartado, se configura el gateway HT-M00 con la red Wifi y la banda de frecuencias de trabajo de la red LoRaWAN, para que realice la recepción e interpretación de la información que es enviada por el Nodo Final con el protocolo LoRaWAN por medio de enlaces de conexión. Para poder luego ser enviada por medio del internet con la tecnología Wifi hacia la nube o servidor de red. Es decir, es el intermediario para la comunicación entre el nodo final y el servidor de red, comportándose como un repetidor de señal.
+
+### 4. Servidor de Red
+El cuarto proceso en el servidor de red, The Things Network se registra y configura el gateway HT-M00 seguido del nodo final Wifi LoRa 32 v2 con la red LoRaWAN y la banda de frecuencias de trabajo, con el objetivo de poder comunicarse con los dispositivos de manera remota y recolectar la información que fueron enviados por los sensores, para poder receptar y visualizarlos, en tiempo real.
+
+### 5. Interfaz de Usuario
+En el quinto y último proceso, con la investigación de compatibilidad del servidor de red, se selecciona la interfaz de usuario Node-Red, que es capaz de poder comunicarse con el servidor de red (The Things Network) transmitiendo los datos censados por los sensores, de manera visual y de fácil entendimiento para el usuario final, en tiempo real.
 
 <div align="center">
   <h3>Resultados</h3>
